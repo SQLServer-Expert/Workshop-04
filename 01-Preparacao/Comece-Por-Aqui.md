@@ -1,7 +1,6 @@
 # Comece por Aqui
 
 ## Workshop SQL Server Expert - 4ª Edição
-
 ### Construa Soluções com IA Dentro do SQL Server 2025
 
 Bem-vindo ao Workshop SQL Server Expert 4ª Edição.
