@@ -8,6 +8,14 @@ Bem-vindo ao Workshop SQL Server Expert 4ª Edição.
 
 Neste workshop você aprenderá na prática como utilizar os novos recursos de Inteligência Artificial do SQL Server 2025 para construir aplicações inteligentes utilizando Embeddings, Busca Vetorial e Retrieval-Augmented Generation (RAG).
 
+```sql
+CREATE TABLE dbo.Produto
+(
+    ProdutoID int IDENTITY(1,1) PRIMARY KEY,
+    Nome varchar(100) NOT NULL,
+    Preco decimal(10,2) NOT NULL
+);
+```
 ---
 
 ## Objetivo do Workshop
