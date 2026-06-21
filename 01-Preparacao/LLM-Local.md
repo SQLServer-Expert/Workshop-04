@@ -1,5 +1,5 @@
 ## Workshop SQL Server Expert - 4ª Edição
-#### Construa Soluções com IA Dentro do SQL Server 2025
+### Construa Soluções com IA Dentro do SQL Server 2025
 
 **1️⃣ Instalando e Configurando LLM**
 
