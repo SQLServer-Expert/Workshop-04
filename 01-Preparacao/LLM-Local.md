@@ -46,30 +46,55 @@ localhost, 127.0.0.1 {
     format console
   }
 }
+```
 
 Agora em uma janela de Prompt (Command Window) execute a partir da mesma pasta do arquivo criado acima. Aparecendo uma janela confirmando a instalação de um certificado local responda "Yes".
-
 ```text
 .\caddy_windows_amd64.exe run --config Caddyfile
+```
 
 Para garantir a instalação de certificado local, execute em outra janela de prompt o comando abaixo:
-
+```text
 .\caddy_windows_amd64.exe trust
+```
 
 Agora precisamos testar se o Ollama está funcionando corretamente. Abra uma janela de PowerShell e execute o comando abaixo. Vai gerar um resultado sem nenhum modelo, pois ainda não instalamos.
 
 ```powershell
 ollama list
+```
 
 O mesmo deve acontecer com o comando PowerShell abaixo, lista vazia:
 
 ```powershell
 curl.exe http://localhost:11434/api/tags
+```
 
-Agora vamos instalar os modelos que serão utilizado no Workshop, um para 
+Agora vamos instalar os modelos que serão utilizado no Workshop, um para chat e outro para embeddings, você encontra a lista de modelos disponíveis no Ollama no link abaixo:
 https://ollama.com/library
 
+**PowerShell:** Instalando Modelo de Chat **mais lento**, recebe pergunta e gera resposta em linguagem natural.
+```powershell
 ollama pull llama3.1:8b
+```
 
+**PowerShell:** Instalando Modelo de Chat **mais rápido**, recebe pergunta e gera resposta em linguagem natural.
+```powershell
+ollama pull llama3.2:1b
+```
+
+**PowerShell:** Modelo de Embeddings que transforma texto em vetor numérico.
+```powershell
 ollama pull nomic-embed-text
+```
+
+**Command Prompt:** Teste de acesso ao Ollama com pergunta sobre índices.
+```powershell
+curl -H "Content-Type: application/json" -d "{\"model\":\"llama3.1:8b\",\"messages\":[{\"role\":\"system\",\"content\":\"You are a helpful assistant that explains database concepts clearly.\"},{\"role\":\"user\",\"content\":\"Explain the difference between clustered and nonclustered indexes in SQL Server.\"}],\"stream\":false}" http://localhost:11434/api/chat
+```
+
+**Command Prompt:** Teste de acesso ao Ollama via Proxy Caddy com pergunta sobre índices.
+```powershell
+curl --ssl-no-revoke -H "Content-Type: application/json" -d "{\"model\":\"llama3.2:1b\",\"messages\":[{\"role\":\"system\",\"content\":\"You are a helpful assistant that explains database concepts clearly.\"},{\"role\":\"user\",\"content\":\"Explain the difference between clustered and nonclustered indexes in SQL Server.\"}],\"stream\":false}" https://localhost/api/chat
+```
 
