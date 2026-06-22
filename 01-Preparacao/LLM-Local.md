@@ -90,7 +90,7 @@ ollama pull nomic-embed-text
 
 **Command Prompt:** Teste de acesso ao Ollama com pergunta sobre índices.
 ```powershell
-curl -H "Content-Type: application/json" -d "{\"model\":\"llama3.1:8b\",\"messages\":[{\"role\":\"system\",\"content\":\"You are a helpful assistant that explains database concepts clearly.\"},{\"role\":\"user\",\"content\":\"Explain the difference between clustered and nonclustered indexes in SQL Server.\"}],\"stream\":false}" http://localhost:11434/api/chat
+curl -H "Content-Type: application/json" -d "{\"model\":\"llama3.2:1b\",\"messages\":[{\"role\":\"system\",\"content\":\"You are a helpful assistant that explains database concepts clearly.\"},{\"role\":\"user\",\"content\":\"Explain the difference between clustered and nonclustered indexes in SQL Server.\"}],\"stream\":false}" http://localhost:11434/api/chat
 ```
 
 **Command Prompt:** Teste de acesso ao Ollama via Proxy Caddy com pergunta sobre índices.
