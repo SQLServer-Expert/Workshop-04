@@ -14,12 +14,6 @@ Agora precisamos testar se o Ollama está funcionando corretamente. Abra uma jan
 ollama list
 ```
 
-O mesmo deve acontecer com o comando PowerShell abaixo, lista vazia:
-
-```powershell
-curl.exe http://localhost:11434/api/tags
-```
-
 Agora vamos instalar os modelos que serão utilizado no Workshop, alguns para chat e outros para embeddings, você encontra a lista de modelos disponíveis no Ollama no link abaixo:
 https://ollama.com/library
 
@@ -49,17 +43,13 @@ ollama pull mxbai-embed-large
 ```
 
 **Command Prompt:** Teste utilizando Modelo de Chat com pergunta sobre índices.
-```powershell
-curl -H "Content-Type: application/json" -d "{\"model\":\"llama3.2:1b\",\"messages\":[{\"role\":\"system\",\"content\":\"You are a helpful assistant that explains database concepts clearly.\"},{\"role\":\"user\",\"content\":\"Explain the difference between clustered and nonclustered indexes in SQL Server.\"}],\"stream\":false}" http://localhost:11434/api/chat
+```cmd
+curl -H "Content-Type: application/json" -d "{\"model\":\"llama3.2:1b\",\"messages\":[{\"role\":\"system\",\"content\":\"Você é um assistente que explica conceitos do banco de dados Microsoft SQL Server de forma clara e objetiva.\"},{\"role\":\"user\",\"content\":\"Explique a diferença entre índices clusterizados e índices não clusterizados no SQL Server.\"}],\"stream\":false}" http://localhost:11434/api/chat
 ```
 
 **Command Prompt:** Teste utilizando Modelo de Chat via Proxy Caddy com pergunta sobre índices.
-```powershell
-curl --ssl-no-revoke -H "Content-Type: application/json" -d "{\"model\":\"llama3.2:1b\",\"messages\":[{\"role\":\"system\",\"content\":\"You are a helpful assistant that explains database concepts clearly.\"},{\"role\":\"user\",\"content\":\"Explain the difference between clustered and nonclustered indexes in SQL Server.\"}],\"stream\":false}" https://localhost/api/chat
+```cmd
+curl --ssl-no-revoke -H "Content-Type: application/json" -d "{\"model\":\"llama3.2:1b\",\"messages\":[{\"role\":\"system\",\"content\":\"Você é um assistente que explica conceitos do banco de dados Microsoft SQL Server de forma clara e objetiva.\"},{\"role\":\"user\",\"content\":\"Explique a diferença entre índices clusterizados e índices não clusterizados no SQL Server.\"}],\"stream\":false}" https://localhost/api/chat
 ```
 
-**Command Prompt:** Teste utilizando Modelo de Chat via Proxy Caddy com pergunta sobre índices.
-```powershell
-curl --ssl-no-revoke -X POST https://localhost/api/embeddings -H "Content-Type: application/json" -d "{\"model\":\"mxbai-embed-large\",\"prompt\":\"The Dallas Cowboys are the best team in the NLF\"}"
-```
 
