@@ -46,7 +46,6 @@ dump/
 *.tmp.pdf
 
 # --- Arquivos de backup ---
-*.bak
 *.trn
 
 # --- Exceções (sempre manter) ---
