@@ -1,9 +1,9 @@
 ## Workshop SQL Server Expert - 4ª Edição
 ### Construa Soluções com IA Dentro do SQL Server 2025
 
-### 1️⃣ Instalando e Configurando LLM
+### ▶️ Instalando e Configurando LLM
 
-**➡️ Ollama LLM**
+**Ollama LLM**
 Fazer download e instalar Ollama utilizando o link abaixo:
 https://ollama.com/download/windows
 

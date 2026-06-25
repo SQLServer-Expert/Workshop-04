@@ -1,10 +1,9 @@
 ## Workshop SQL Server Expert - 4ª Edição
 ### Construa Soluções com IA Dentro do SQL Server 2025
 
-### 1️⃣ Instalando e Configurando LLM
+### ▶️ Instalando e Configurando Proxy Local Candy
 
-
-**➡️ Proxy Caddy**
+**Proxy Caddy**
 Fazer download do Proxy Caddy utilizando o link abaixo, salve o arquivo "caddy_windows_amd64.exe" em uma pasta local, por exemplo "C:\Caddy"
 https://caddyserver.com/download
 
