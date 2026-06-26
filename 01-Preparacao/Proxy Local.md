@@ -85,7 +85,7 @@ curl --ssl-no-revoke -X POST https://localhost/api/embeddings -H "Content-Type: 
 ```
 
 **Testando do SQL Server
-Agora vamos testar o acesso a LLM via Cady de dentro do SQL Server.
+Agora vamos testar o acesso a LLM via Caddy de dentro do SQL Server.
 Abra o Management Studio, em uma janela de Query, cole e execute o comando abaixo:
 
 ```sql
