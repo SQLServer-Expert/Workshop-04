@@ -81,15 +81,11 @@ Get-ChildItem Cert:\LocalMachine\Root | Where-Object { $_.Subject -like "*Caddy*
 
 **Command Prompt:** Teste utilizando Modelo de Chat via Proxy Caddy com pergunta sobre índices.
 ```cmd
-curl --ssl-no-revoke -H "Content-Type: application/json" -d "{\"model\":\"llama3.2:1b\",\"messages\":[{\"role\":\"system\",\"content\":\"You are a helpful assistant that explains database concepts clearly.\"},{\"role\":\"user\",\"content\":\"Explain the difference between clustered and nonclustered indexes in SQL Server.\"}],\"stream\":false}" https://localhost/api/chat
+curl --ssl-no-revoke -H "Content-Type: application/json" -d "{\"model\":\"llama3.2:1b\",\"messages\":[{\"role\":\"system\",\"content\":\"Você é um assistente que explica conceitos do banco de dados Microsoft SQL Server de forma clara e objetiva.\"},{\"role\":\"user\",\"content\":\"Explique a diferença entre índices clusterizados e índices não clusterizados no SQL Server.\"}],\"stream\":false}" https://localhost/api/chat
 ```
 
-**Command Prompt:** Teste utilizando Modelo de Chat via Proxy Caddy com pergunta sobre índices.
-```cmd
-curl --ssl-no-revoke -X POST https://localhost/api/embeddings -H "Content-Type: application/json" -d "{\"model\":\"mxbai-embed-large\",\"prompt\":\"The Dallas Cowboys are the best team in the NLF\"}"
-```
 
-**Testando do SQL Server
+**Testando do SQL Server**
 Agora vamos testar o acesso a LLM via Caddy de dentro do SQL Server.
 Abra o **Management Studio**, em uma janela de Query, cole e execute o comando abaixo:
 
