@@ -17,12 +17,12 @@ ollama list
 Agora vamos instalar os modelos que serão utilizado no Workshop, alguns para chat e outros para embeddings, você encontra a lista de modelos disponíveis no Ollama no link abaixo:
 https://ollama.com/library
 
-**PowerShell:** Instalando Modelo de Chat **mais leve**, recebe pergunta e gera resposta em linguagem natural.
+**PowerShell:** Instalando Modelo de Chat **mais pesado**, recebe pergunta e gera resposta em linguagem natural.
 ```powershell
 ollama pull llama3.1:8b
 ```
 
-**PowerShell:** Instalando Modelo de Chat **mais pesado**, recebe pergunta e gera resposta em linguagem natural.
+**PowerShell:** Instalando Modelo de Chat **mais leve**, recebe pergunta e gera resposta em linguagem natural.
 ```powershell
 ollama pull llama3.2:1b
 ```
