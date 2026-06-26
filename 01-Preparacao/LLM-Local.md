@@ -42,6 +42,9 @@ ollama pull nomic-embed-text
 ollama pull mxbai-embed-large
 ```
 
+Para **desistalar** um modelo basta utilizar o comando "ollama rm NomeDoModelo, por exemplo:
+ollama rm llama3.2:1b
+
 **Command Prompt:** Teste utilizando Modelo de Chat com pergunta sobre índices.
 ```cmd
 curl -H "Content-Type: application/json" -d "{\"model\":\"llama3.2:1b\",\"messages\":[{\"role\":\"system\",\"content\":\"Você é um assistente que explica conceitos do banco de dados Microsoft SQL Server de forma clara e objetiva.\"},{\"role\":\"user\",\"content\":\"Explique a diferença entre índices clusterizados e índices não clusterizados no SQL Server.\"}],\"stream\":false}" http://localhost:11434/api/chat
