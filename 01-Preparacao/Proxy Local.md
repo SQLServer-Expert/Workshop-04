@@ -44,11 +44,13 @@ localhost, 127.0.0.1 {
 }
 ```
 
+**Carregando o Candy**
 Agora em uma janela de Prompt (Command Window) execute a partir da mesma pasta do arquivo criado acima. Aparecendo uma janela confirmando a instalação de um certificado local responda "Yes".
 ```text
 .\caddy_windows_amd64.exe run --config Caddyfile
 ```
 
+**Instalando Certificado**
 Para garantir a instalação de certificado local, execute em outra janela de prompt o comando abaixo:
 ```text
 .\caddy_windows_amd64.exe trust
@@ -82,3 +84,29 @@ curl --ssl-no-revoke -H "Content-Type: application/json" -d "{\"model\":\"llama3
 curl --ssl-no-revoke -X POST https://localhost/api/embeddings -H "Content-Type: application/json" -d "{\"model\":\"mxbai-embed-large\",\"prompt\":\"The Dallas Cowboys are the best team in the NLF\"}"
 ```
 
+**Testando do SQL Server
+Agora vamos testar o acesso a LLM via Cady de dentro do SQL Server.
+Abra o Management Studio, em uma janela de Query, cole e execute o comando abaixo:
+
+```sql
+DECLARE @payload NVARCHAR(MAX) = N'{
+    "model": "llama3.2:1b",
+    "messages": [
+        {"role": "system", "content": "Você é um assistente especialista em SQL Server."},
+        {"role": "user",   "content": "Explique o que é TempDB"}
+    ],
+    "stream": false
+}'
+
+DECLARE @response NVARCHAR(MAX)
+
+EXEC sp_invoke_external_rest_endpoint
+@url      = 'https://localhost/api/chat',
+@method   = 'POST',
+@headers  = '{"Content-Type":"application/json"}',
+@payload  = @payload,
+@timeout  = 120,
+@response = @response OUTPUT
+
+SELECT JSON_VALUE(@response, '$.result.message.content') AS Resposta
+```
