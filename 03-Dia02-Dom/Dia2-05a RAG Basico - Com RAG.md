@@ -1,4 +1,7 @@
-**Como usar DBCC CHECKDB?**  O `DBCC CHECKDB` é uma ferramenta poderosa para diagnosticar e reparar problemas em bancos de dados SQL Server, incluindo corrupção de tabelas, alterações no layout do arquivo de log ou outros problemas de consistência.  **Passos para executar DBCC CHECKDB:**  
+**Como usar DBCC CHECKDB?**  
+O `DBCC CHECKDB` é uma ferramenta poderosa para diagnosticar e reparar problemas em bancos de dados SQL Server, incluindo corrupção de tabelas, alterações no layout do arquivo de log ou outros problemas de consistência.  
+
+**Passos para executar DBCC CHECKDB:**  
 
 1.  **Defina o banco de dados a ser verificado**: Antes de executar `DBCC CHECKDB`, é importante definir o banco de dados que você deseja verificar. 
 
@@ -12,4 +15,8 @@
 
 *   `WITH REPAIR_ALLOW_DATA_LOSS`: Permite que você execute a reparação do banco de dados com perda de dados permitida.  
 
-**Exemplo de uso:**  ```sql DBCC CHECKDB (VendasDB) WITH NO_INFOMSGS, TABLERESULTS; ```  Essa execução verifica o banco de dados `VendasDB` e exibe todas as alterações realizadas durante a execução, incluindo as páginas suspeitas e inconsistentes detectadas.
+**Exemplo de uso:**  
+```sql 
+DBCC CHECKDB (VendasDB) WITH NO_INFOMSGS, TABLERESULTS;
+```
+Essa execução verifica o banco de dados `VendasDB` e exibe todas as alterações realizadas durante a execução, incluindo as páginas suspeitas e inconsistentes detectadas.
