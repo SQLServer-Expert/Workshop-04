@@ -1,4 +1,4 @@
-﻿/*
+/*
 ===============================================================================
 Workshop SQL Server Expert 4ª edição
 Construa Soluções com IA no SQL Server 2025
@@ -41,9 +41,9 @@ AS DEFAULT
 /**************************************************
  2o Passo: Criar um Índice Fulltext por tabela
 ***************************************************/
--- DROP FULLTEXT INDEX ON dbo.BlogChunksGemma
-CREATE FULLTEXT INDEX ON dbo.BlogChunksGemma (Chunk_Texto LANGUAGE 1046)
-KEY INDEX pk_BlogChunksGemma
+-- DROP FULLTEXT INDEX ON dbo.BlogChunks_PorTamanho
+CREATE FULLTEXT INDEX ON dbo.BlogChunks_PorTamanho (Chunk_Texto LANGUAGE 1046)
+KEY INDEX pk_BlogChunks_PorTamanho
 WITH STOPLIST = SYSTEM
 
 -- DROP FULLTEXT INDEX ON dbo.BlogChunks
@@ -163,4 +163,3 @@ FROM FREETEXTTABLE(dbo.BlogChunks, Chunk_Texto, @Pergunta) as FT
 JOIN dbo.BlogChunks C ON C.ChunkId = FT.[KEY]
 JOIN dbo.BlogPosts bp ON bp.PostId = c.PostId
 ORDER BY FT.[RANK] DESC
-
