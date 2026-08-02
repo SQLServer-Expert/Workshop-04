@@ -90,7 +90,7 @@ ALTER TABLE dbo.BlogChunks_PorTamanho ADD CONSTRAINT uq_BlogChunks_PorTamanho_Po
 UNIQUE (PostId, Chunk_Indice)
 
 ALTER TABLE dbo.BlogChunks_PorTamanho ADD CONSTRAINT fk_BlogChunks_PorTamanho_BlogPosts 
-FOREIGN KEY REFERENCES dbo.BlogPosts(PostId)
+FOREIGN KEY (PostId) REFERENCES dbo.BlogPosts(PostId)
 go
 
 /************************************
