@@ -22,10 +22,10 @@ go
 /**************************************
  Criar o índice vetorial
 ***************************************/
-DROP INDEX IF EXISTS IX_BlogChunksGemma_Embedding ON dbo.BlogChunksGemma
+DROP INDEX IF EXISTS IX_BlogChunks_PorTamanho ON dbo.BlogChunks_PorTamanho
 go
-CREATE VECTOR INDEX IX_BlogChunksGemma_Embedding
-ON dbo.BlogChunksGemma (Embedding)
+CREATE VECTOR INDEX IX_BlogChunks_PorTamanho
+ON dbo.BlogChunks_PorTamanho (Embedding)
 WITH (METRIC = 'cosine', TYPE = 'diskann')
 go
 
@@ -53,7 +53,7 @@ vi.vector_index_type as Algoritmo,
 vi.build_parameters as Parametros
 FROM sys.indexes i
 JOIN sys.vector_indexes vi ON vi.object_id = i.object_id AND vi.index_id  = i.index_id
-WHERE i.object_id = object_id('dbo.BlogChunksGemma')
+WHERE i.object_id = object_id('dbo.BlogChunks_PorTamanho')
 
 /**************************************
  Busca semântica - VECTOR_SEARCH
@@ -66,7 +66,7 @@ DECLARE @Top int = 5
 -- Chunk Tamanho Fixo
 SELECT bp.Titulo, bc.Chunk_Texto as ChunkFixo, vs.distance as Distancia
 FROM vector_search(
-TABLE = dbo.BlogChunksGemma AS bc,
+TABLE = dbo.BlogChunks_PorTamanho AS bc,
 COLUMN = Embedding,
 SIMILAR_TO = @VetorPergunta,
 METRIC = 'cosine',
@@ -100,7 +100,7 @@ DECLARE @VetorPergunta vector(768) = ai_generate_embeddings(@Pergunta USE MODEL 
 -- Chunk Tamanho Fixo
 SELECT TOP (5) bp.Titulo, bc.Chunk_Texto as ChunkFixo,
 vector_distance('cosine', bc.Embedding, @VetorPergunta) as Distancia
-FROM dbo.BlogChunksGemma bc
+FROM dbo.BlogChunks_PorTamanho bc
 INNER JOIN dbo.BlogPosts bp ON bp.PostId = bc.PostId
 ORDER BY Distancia ASC
 
@@ -111,4 +111,3 @@ FROM dbo.BlogChunks bc
 INNER JOIN dbo.BlogPosts bp ON bp.PostId = bc.PostId
 ORDER BY Distancia ASC
 go
-
